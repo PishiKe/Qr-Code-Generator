@@ -15,6 +15,9 @@
         <div class="card card-signin my-5 ">
           <div class="card-body">
             <form id="generateQrForm" class="form-signin" method="post" action="generate_contact_qr.php">
+              <div class="h2 text-center">
+                Enter your details
+              </div>
               <div class="form-group p-2">
                 <label for="first-name" class="col-sm-2 control-label">First name</label>
                 <div>
@@ -39,6 +42,7 @@
                   <input type="text" class="form-control" id="phone" name="phone" placeholder="07XXXXXXXX" value="" />
                 </div>
               </div>
+
               <div class="form-group p-2">
                 <label for="email" class="col-sm-2 control-label">Email</label>
                 <div>
@@ -49,6 +53,12 @@
                 <label for="phone" class="col-sm-2 control-label">Url</label>
                 <div>
                   <input type="text" class="form-control" id="url" name="url" placeholder="Enter your web url" value="" />
+                </div>
+              </div>
+              <div class="form-group p-2">
+                <label for="job-title" class="col-sm-2 control-label">Job title</label>
+                <div>
+                  <input type="text" class="form-control" id="job-title" name="job-title" placeholder="Job title" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
@@ -64,9 +74,27 @@
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="social" class=" control-label">Social Media Profile</label>
+                <label for="twitter" class=" control-label">Twitter Profile</label>
                 <div>
-                  <input type="text" class="form-control" id="social" name="social" placeholder="https://twitter/username" value="" />
+                  <input type="text" class="form-control" id="twitter" name="twitter" placeholder="https://twitter.com/username" value="" />
+                </div>
+              </div>
+              <div class="form-group p-2">
+                <label for="facebook" class=" control-label">Facebook Profile</label>
+                <div>
+                  <input type="text" class="form-control" id="facebook" name="facebook" placeholder="https://facebook.com/username" value="" />
+                </div>
+              </div>
+              <div class="form-group p-2">
+                <label for="linkedin" class=" control-label">Linked in Profile</label>
+                <div>
+                  <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="https://linkedin.com/username" value="" />
+                </div>
+              </div>
+              <div class="form-group p-2">
+                <label for="instagram" class=" control-label">Instagram Profile</label>
+                <div>
+                  <input type="text" class="form-control" id="instagram" name="instagram" placeholder="https://instagram.com/username" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
@@ -100,16 +128,11 @@
                 </div>
               </div>
               <div class="form-group p-2">
-                <div class="col-sm-10 col-sm-offset-2">
-                  <input id="submit" name="submit" type="submit" value="Generate QR" class="btn btn-primary" />
+                <div>
+                  <input id="submit" name="submit" type="submit" value="Generate QR" class="btn btn-primary col-12 btn-danger" />
                 </div>
               </div>
-              <br>
-              <div class="form-group ">
-                <div class="col-sm-10 col-sm-offset-2">
-                  <! Will be used to display an alert to the user>
-                </div>
-              </div>
+
             </form>
           </div>
         </div>
@@ -120,4 +143,5 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 </body>
+
 </html>
