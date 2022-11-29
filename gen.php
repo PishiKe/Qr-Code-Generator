@@ -5,10 +5,17 @@ require "vendor/autoload.php";
 use Endroid\QrCode\QrCode;
 use Endroid\QrCode\Writer\PngWriter;
 use JeroenDesloovere\VCard\VCard;
+use Endroid\QrCode\Label\Label;
+use Endroid\QrCode\Logo\Logo;
+use Endroid\QrCode\Color\Color;
+use Endroid\QrCode\RoundBlockSizeMode\RoundBlockSizeModeMargin;
+use Endroid\QrCode\ErrorCorrectionLevel\ErrorCorrectionLevelLow;
+use Endroid\QrCode\Encoding\Encoding;
 
 if (isset($_POST['submit'])) {
 
     //vcard data
+    $firstName = $_GET['text'];
     $firstName = $_POST['first-name'];
     $lastName = $_POST['last-name'];
     $namePrefix = $_POST['prefix'];
@@ -20,26 +27,24 @@ if (isset($_POST['submit'])) {
     $phone = $_POST['phone'];
     $phoneType = 'Work';
     $url = $_POST['url'];
-    $urlType = 'Personal';
-    $twitter = 'https://twitter.com/'.$_POST['twitter'];
-    $facebook = 'https://facebook.com/'.$_POST['facebook'];
-    $instagram = 'https://instagram.com/'.$_POST['instagram'];
-    $linkedin = 'https://linkedin.com/'.$_POST['linkedin'];
+    $urlType = 'Work';
+    $twitter = $_POST['twitter'];
+    $facebook = $_POST['facebook'];
+    $linkedin = $_POST['linkedin'];
+    $instagram = $_POST['instagram'];
     $street = $_POST['street'];
     $city = $_POST['city'];
-    $state = $_POST['state'];
     $region = $_POST['region'];
-    $zip = $_POST['post-code'];
+    $postCode = $_POST['post-code'];
     $country = $_POST['country'];
     $addressType = 'Work';
-
 
     //initialize vcard
     $vcard = new VCard();
 
     $vcard->addName($lastName, $firstName, $additionalName, $namePrefix, $nameSuffix);
-    $vcard->addCompany($company, $department);
     $vcard->addJobtitle($jobTitle);
+    $vcard->addCompany($company, $department);
     $vcard->addEmail($email, $emailType);
     $vcard->addPhoneNumber($phone, $phoneType);
     $vcard->addURL($url, $urlType);
@@ -47,16 +52,36 @@ if (isset($_POST['submit'])) {
     $vcard->addurl($facebook);
     $vcard->addurl($instagram);
     $vcard->addurl($linkedin);
-    $vcard->addAddress($addressName, $extendedAddress, $street, $city, $region, $zip, $country, $state, $addressType);
+    $vcard->addAddress($addressName, $extendedAddress, $street, $city, $region, $zip, $country, $addressType);
 
     //converts vcard data to string
     $vcardAsString = $vcard->getOutput();
 
     // create qr code
-    $qr = QrCode::create($vcardAsString);
+    $qr = QrCode::create($vcardAsString)
+        ->setEncoding(new Encoding('UTF-8'))
+        ->setErrorCorrectionLevel(new ErrorCorrectionLevelLow())
+        ->setSize(300)
+        ->setMargin(10)
+        ->setRoundBlockSizeMode(new RoundBlockSizeModeMargin())
+        ->setForegroundColor(new Color(0, 0, 0))
+        ->setBackgroundColor(new Color(255, 255, 255));
 
-    $writer = new PngWriter();
-    $result = $writer->write($qr);
+    // Create generic logo
+    $logo = Logo::create(__DIR__ . 'assets/logo/favicon.ico')
+        ->setResizeToWidth(10);
+
+    // Create generic label
+    $label = Label::create('Label')
+        ->setTextColor(new Color(255, 0, 0));
+
+    $result = $writer->write($qr, null, null);
+
+    // Validate the result
+    // $writer->validateResult($result, 'Life is too short to be generating QR codes');
+
+    // $writer = new PngWriter();
+    // $result = $writer->write($qr);
 
     // ways to output the qr-code
 
@@ -72,7 +97,10 @@ if (isset($_POST['submit'])) {
 
     // echo "<img src='/qr.png'>";
 }
+
+
 ?>
+
 <html lang="en">
 
 <head>
@@ -121,6 +149,7 @@ if (isset($_POST['submit'])) {
                             adipisci</p> -->
                     </div>
                 </div>
+
 
                 <!-- <div class="avatar mx-auto white">
                     <img src="https://randomuser.me/api/portraits/women/6.jpg" class="rounded-circle img-fluid" alt="woman avatar">
@@ -179,15 +208,6 @@ if (isset($_POST['submit'])) {
                     </div>
                 <?php endif ?>
 
-                <?php if ($_POST['state'] != null) : ?>
-                    <div class="card-body" id="state">
-                        <span class="d-inline-block"> <i class="i bi bi-geo-alt"></i></span>
-                        <span class="d-inline-block btn float-right">
-                            <h5><?php echo $state ?></h5>
-                        </span>
-                    </div>
-                <?php endif ?>
-
                 <?php if ($_POST['street'] != null) : ?>
                     <div class="card-body" id="street">
                         <span class="d-inline-block"> <i class="i bi bi-geo-alt"></i></span>
@@ -210,7 +230,7 @@ if (isset($_POST['submit'])) {
                     <div class="card-body" id="post-code">
                         <span class="d-inline-block"> <i class="i bi bi-pin"></i></span>
                         <span class="d-inline-block btn float-right">
-                            <h5><?php echo $zip ?></h5>
+                            <h5><?php echo $postCode ?></h5>
                         </span>
                     </div>
                 <?php endif ?>
