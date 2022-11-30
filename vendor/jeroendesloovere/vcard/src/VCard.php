@@ -91,7 +91,7 @@ class VCard
         $type = 'WORK;POSTAL'
     ) {
         // init value
-        $value = $name . ';' . $extended . ';' . $street . ';' . $city . ';' . $region . ';' . $zip . ';' . $country . ';' . $state;
+        $value = $name . ';' . $extended . ';' . $street . ';' . $city . ';' . $region . ';' . $zip . ';' . $country . ';' . $state. ';' . $type;
 
         // set property
         $this->setProperty(

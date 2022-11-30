@@ -21,10 +21,10 @@ if (isset($_POST['submit'])) {
     $phoneType = 'Work';
     $url = $_POST['url'];
     $urlType = 'Personal';
-    $twitter = 'https://twitter.com/'.$_POST['twitter'];
-    $facebook = 'https://facebook.com/'.$_POST['facebook'];
-    $instagram = 'https://instagram.com/'.$_POST['instagram'];
-    $linkedin = 'https://linkedin.com/'.$_POST['linkedin'];
+    $twitter = 'https://twitter.com/' . $_POST['twitter'];
+    $facebook = 'https://facebook.com/' . $_POST['facebook'];
+    $instagram = 'https://instagram.com/' . $_POST['instagram'];
+    $linkedin = $_POST['linkedin'];
     $street = $_POST['street'];
     $city = $_POST['city'];
     $state = $_POST['state'];
@@ -32,7 +32,6 @@ if (isset($_POST['submit'])) {
     $zip = $_POST['post-code'];
     $country = $_POST['country'];
     $addressType = 'Work';
-
 
     //initialize vcard
     $vcard = new VCard();
@@ -118,13 +117,13 @@ if (isset($_POST['submit'])) {
                         <h1 class="card-title font-weight-bold text-light"><?php echo  $namePrefix . " " . $firstName . " " . $lastName ?></h4>
                             <!-- <hr> -->
                             <!-- <p><i class="fas fa-quote-left"></i> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos,
-                            adipisci</p> -->
+                                adipisci</p> -->
                     </div>
                 </div>
 
                 <!-- <div class="avatar mx-auto white">
-                    <img src="https://randomuser.me/api/portraits/women/6.jpg" class="rounded-circle img-fluid" alt="woman avatar">
-                </div> -->
+                        <img src="https://randomuser.me/api/portraits/women/6.jpg" class="rounded-circle img-fluid" alt="woman avatar">
+                    </div> -->
                 <?php if ($_POST['email'] != null) : ?>
                     <div class="card-body" id="email">
                         <span class="d-inline-block"> <i class="i bi bi-envelope"></i></span>
@@ -148,6 +147,15 @@ if (isset($_POST['submit'])) {
                         <span class="d-inline-block"> <i class="i bi bi-building"></i></span>
                         <span class="d-inline-block btn float-right">
                             <h5><?php echo $company ?></h5>
+                        </span>
+                    </div>
+                <?php endif ?>
+
+                <?php if ($_POST['department'] != null) : ?>
+                    <div class="card-body" id="department">
+                        <span class="d-inline-block"> <i class="i bi bi-building"></i></span>
+                        <span class="d-inline-block btn float-right">
+                            <h5><?php echo $department ?></h5>
                         </span>
                     </div>
                 <?php endif ?>
@@ -208,7 +216,7 @@ if (isset($_POST['submit'])) {
 
                 <?php if ($_POST['post-code'] != null) : ?>
                     <div class="card-body" id="post-code">
-                        <span class="d-inline-block"> <i class="i bi bi-pin"></i></span>
+                        <span class="d-inline-block"> <i class="i bi bi-mailbox"></i></span>
                         <span class="d-inline-block btn float-right">
                             <h5><?php echo $zip ?></h5>
                         </span>
@@ -233,19 +241,17 @@ if (isset($_POST['submit'])) {
                         <a href="<?php echo $facebook ?>" target="_blank" class="i bi bi-facebook text-dark mx-1"></a>
                     <?php endif ?>
 
-                    <?php if ($_POST['linkedin'] != null) : ?>
-                        <a href="<?php echo $linkedin ?> " target="_blank" class="i bi bi-linkedin text-dark mx-1"></a>
-                    <?php endif ?>
-
                     <?php if ($_POST['instagram'] != null) : ?>
                         <a href="<?php echo $instagram ?>" target="_blank" class="i bi bi-instagram text-dark mx-1"></a>
                     <?php endif ?>
-                </div>
 
+                    <?php if ($_POST['linkedin'] != null) : ?>
+                        <a href="<?php echo $linkedin ?> " target="_blank" class="i bi bi-linkedin text-dark mx-1"></a>
+                    <?php endif ?>
+                </div>
                 <div id="qrbox" style="text-align: center;">
                     <img src="/qr.png" alt="">
                 </div>
-
         </section>
     </div>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

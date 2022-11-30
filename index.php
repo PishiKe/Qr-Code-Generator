@@ -15,76 +15,112 @@
         <div class="card card-signin my-5 ">
           <div class="card-up">
             <div class="card-body">
-            <span class="d-inline-block">
-                <img src="/assets/logo/transparent_eyby.png" class="img-fluid" width="10%" alt="">
+              <span>
+                <img src="/assets/logo/transparent_eyby.png" class="img-fluid" width="25%" alt="">
               </span>
-              <span class="d-inline-block  float-right">
-                <h2> Enter your details</h2>
+              <span>
+                <h2>vCard Qr Generator</h2>
               </span>
             </div>
           </div>
           <div class="card-body">
             <form id="generateQrForm" class="form-signin" method="post" action="generate_contact_qr.php">
               <div class="form-group p-2">
-                <label for="first-name" class="col-sm-2 control-label">First name</label>
+                <span class="d-inline-block"><i class="i bi bi-person text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="first-name" class=" control-label">First Name</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="first-name" name="first-name" placeholder="First name" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="last-name" class="col-sm-2 control-label">Last Name</label>
+                <span class="d-inline-block"><i class="i bi bi-person text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="last-name" class=" control-label">Last Name</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="last-name" name="last-name" placeholder="Last name" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="prefix" class="col-md-3 control-label">Name prefix</label>
+                <span class="d-inline-block"><i class="i bi bi-person text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="prefix" class=" control-label">Name Prefix</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="prefix" name="prefix" placeholder="Mr, Mrs, Dr ..." value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="phone" class="col-sm-2 control-label">Phone</label>
+                <span class="d-inline-block"><i class="i bi bi-phone text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="phone" class=" control-label">Phone Number</label>
+                </span>
                 <div>
-                  <input type="text" class="form-control" id="phone" name="phone" placeholder="07XXXXXXXX" value="" />
+                  <input type="text" class="form-control" id="phone" name="phone" placeholder="0700111222" value="" />
                 </div>
               </div>
 
               <div class="form-group p-2">
-                <label for="email" class="col-sm-2 control-label">Email</label>
+                <span class="d-inline-block"><i class="i bi bi-envelope text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="email" class=" control-label">Email Address</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="email" name="email" placeholder="example@domain.com" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="phone" class="col-sm-2 control-label">Url</label>
+                <span class="d-inline-block"><i class="i bi bi-globe text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="url" class=" control-label">Website Url</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="url" name="url" placeholder="Enter your web url" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="job-title" class="col-sm-2 control-label">Job title</label>
+                <span class="d-inline-block"><i class="i bi bi-briefcase text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="job-title" class=" control-label">Job Title</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="job-title" name="job-title" placeholder="Job title" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="company" class="col-sm-2 control-label">Company</label>
+                <span class="d-inline-block"><i class="i bi bi-building text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="company" class=" control-label">Company</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="company" name="company" placeholder="Company name" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="department" class="col-md-3 control-label">Department</label>
+                <span class="d-inline-block"><i class="i bi bi-building text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="department" class=" control-label">Department</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="department" name="department" placeholder="Department name" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <span class="d-inline-block"> <i class="i bi bi-twitter text-dark mx-1"></i>
+                <span class="d-inline-block"> <i id="twitter-logo" class="i bi bi-twitter text-dark mx-1"></i>
                 </span>
                 <span class="d-inline-block btn float-right">
-                  <label for="twitter" class=" control-label">Twitter Username</label>
+                  <label for="twitter" class="control-label">Twitter Username</label>
                 </span>
                 <div class="input-group">
                   <div class="input-group-prepend">
@@ -107,19 +143,6 @@
                 </div>
               </div>
               <div class="form-group p-2">
-                <span class="d-inline-block"> <i class="i bi bi-linkedin text-dark mx-1"></i>
-                </span>
-                <span class="d-inline-block btn float-right">
-                  <label for="linkedin" class=" control-label">Linkedin Username</label>
-                </span>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroupPrepend2">@</span>
-                  </div>
-                  <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="Username">
-                </div>
-              </div>
-              <div class="form-group p-2">
                 <span class="d-inline-block"> <i class="i bi bi-instagram text-dark mx-1"></i>
                 </span>
                 <span class="d-inline-block btn float-right">
@@ -133,31 +156,63 @@
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="street" class="col-sm-2 control-label">Street</label>
-                <div>
-                  <input type="text" class="form-control" id="street" name="street" placeholder="Street name" value="" />
+                <span class="d-inline-block"> <i class="i bi bi-linkedin text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="linkedin" class=" control-label">Linkedin Profile Url</label>
+                </span>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                  </div>
+                  <input type="text" class="form-control" id="linkedin" name="linkedin" placeholder="Username">
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="city" class="col-sm-2 control-label">City</label>
+                <span class="d-inline-block"><i class="i bi bi-geo-alt text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="city" class=" control-label">City</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="city" name="city" placeholder="City name" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="state" class="col-sm-2 control-label">State</label>
+                <span class="d-inline-block"><i class="i bi bi-geo-alt text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="state" class=" control-label">State</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="state" name="state" placeholder="State name" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="post-code" class="col-sm-2 control-label">Post code</label>
+                <span class="d-inline-block"><i class="i bi bi-geo-alt text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="street" class=" control-label">Street</label>
+                </span>
+                <div>
+                  <input type="text" class="form-control" id="street" name="street" placeholder="Street name" value="" />
+                </div>
+              </div>
+              <div class="form-group p-2">
+                <span class="d-inline-block"><i class="i bi bi-mailbox text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="post-code" class=" control-label">Post Code</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="post-code" name="post-code" placeholder="Post Code" value="" />
                 </div>
               </div>
               <div class="form-group p-2">
-                <label for="country" class="col-sm-2 control-label">Country</label>
+                <span class="d-inline-block"><i class="i bi bi-geo text-dark mx-1"></i>
+                </span>
+                <span class="d-inline-block btn float-right">
+                  <label for="country" class=" control-label">Country</label>
+                </span>
                 <div>
                   <input type="text" class="form-control" id="country" name="country" placeholder="Country" value="" />
                 </div>
@@ -168,6 +223,11 @@
                 </div>
               </div>
 
+              <button id="btn1" class="btnClass">Button 1</button>
+              <button id="btn2">Button 2</button>
+              <p class="para1">jQuery is built on top of JavaScript, a rich and expressive language in its own right. This section covers the basic concepts of JavaScript, as well as some frequent pitfalls for people who have not used JavaScript before. While it will be of particular value to people with no programming experience</p>
+
+
             </form>
           </div>
         </div>
@@ -176,6 +236,16 @@
 
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+  <script>
+    $('#twitter-logo').on('click', function() {
+      $('twitter').hide();
+    });
+
+    $('#btn1').on('click', function(){
+				alert('Button Clicked!');
+			});
+
+  </script>
 </body>
 
 </html>
